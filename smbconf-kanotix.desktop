@@ -1,0 +1,9 @@
+[Desktop Entry]
+Comment[de]=Samba konfigurieren
+Comment[es]=Configuración de la Samba
+Exec=/usr/sbin/smbconf-kanotix
+Name[de]=Samba konfigurieren
+Name[es]=Configuración de la Samba
+Name=samba configuration
+Type=Application
+

@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+#include /usr/share/cdbs/1/rules/simple-patchsys.mk
+#include /usr/share/cdbs/1/class/makefile.mk
+
+#DEB_MAKE_INSTALL_TARGET := DESTDIR=$(DEB_BUILDDIR)/debian/tmp install
+
+PACKAGE_NAME := smbconf-kanotix
+
+common-install-arch common-install-indep:: common-install-impl
+common-install-impl::
+	# main executable
+	install -m 0755 -d $(CURDIR)/debian/$(PACKAGE_NAME)/usr/sbin
+	install -m 0744    $(CURDIR)/$(PACKAGE_NAME).sh $(CURDIR)/debian/$(PACKAGE_NAME)/usr/sbin/$(PACKAGE_NAME)
+	
+	# icons
+	#for i in 16 22 32 ; do \
+	#	install -m 0755 -d $(CURDIR)/debian/$(PACKAGE_NAME)/usr/share/icons/crystalsvg/$$i"x"$$i/apps/ ; \
+	#	install -m 0644    $(CURDIR)/$(PACKAGE_NAME)$$i.png $(CURDIR)/debian/$(PACKAGE_NAME)/usr/share/icons/crystalsvg/$$i"x"$$i/apps/$(PACKAGE_NAME).png ; \
+	#done
+	
+	# XDG menu
+	install -m 0755 -d $(CURDIR)/debian/$(PACKAGE_NAME)/usr/share/applnk/Kanotix/Net
+	for i in *.desktop ; do \
+		echo $$i ; \
+		install -m 644 $$i $(CURDIR)/debian/$(PACKAGE_NAME)/usr/share/applnk/Kanotix/Net/$$i ; \
+	done

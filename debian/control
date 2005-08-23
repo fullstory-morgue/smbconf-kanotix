@@ -1,0 +1,12 @@
+Source: smbconf-kanotix
+Section: x11
+Priority: optional
+Maintainer: Andreas Weber
+Build-Depends: cdbs (>= 0.4.21), debhelper (>= 4.0.0)
+Standards-Version: 3.6.0
+
+Package: smbconf-kanotix
+Architecture: all
+Depends: ${shlibs:Depends}, dialog, xdialog, sudo, samba, samba-common
+Description: Easy Configuration utility for samba on knoppx based lifecds
+ 

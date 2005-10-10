@@ -7,25 +7,14 @@
 # 
 #######################################
 
+# override tool behaviour through distro-defaults
+FLL_DISTRO_MODE="installed"
+FLL_LIVE_USER="knoppix"
+[ -r /etc/default/distro ] && source /etc/default/distro
+
 function sudo_wrapper ()
 {
-if [ $UID != 0 ]; then
-	if [ -d /KNOPPIX ]; then
-		exec sudo "$0" "$@" ||exit 1
-	else
-		if [ -n "$DISPLAY" ]; then
-			if [ -f /usr/bin/kdesu -o -f /usr/kde/3.2/bin/kdesu ]; then
-				kdesu "$0" "$@" ||exit 1
-			else
- 				$DIALOG --title "$ProgName" --msgbox "You need to be root to run this Script." 10 35
-			fi
-		else
-			echo -e "\n\nYou need to be root to run this Script.\n"
-			exit 1
-		fi
- exit 100
-	fi
-fi
+	if [ $UID != 0 ] && exec kanotix-su "$0" "$@" ||exit 1
 }
 
 function dialog_wrapper ()
@@ -82,19 +71,10 @@ $ProgName\n\nAuthor:Andreas Weber\nsambaconf@it-weber.com\n\n\n
 This Script is experimental. There will be no warranty.\nUse it at you own Risk!\n\n\nPress OK to continue.\n\n " 20 50
 }
 
-function check_live ()
-{
-if [ -e /KNOPPIX/bin/ash ]; then
-	MODE=CDROM
-else
-	MODE=HDD
-fi
-}
-
 function get_plugin ()
 {
 if [ ! -f "/usr/lib/kde3/libkcm_kcmsambaconf.la" ]; then
-if [ "$MODE" = "CDROM" ]; then
+if [ "$FLL_DISTRO_MODE" == "live" ]; then
 	echo "Continue without plugin."
 else
 	apt-get install kdenetwork-filesharing
@@ -104,8 +84,8 @@ fi
 
 function SMB_USER_CREATE ()
 {
-if [ "$MODE" = "CDROM" ]; then
-SMB_USER=knoppix
+if [ "$FLL_DISTRO_MODE" == "live" ]; then
+SMB_USER="$FLL_LIVE_USER"
 WIN_USER=$(inputbox "What is the Windows Username of $SMB_USER\n\nexample: kanotix." 50)
 if [ ! "$WIN_USER" ]; then
 	$DIALOG --title "$ProgName" --msgbox "ERROR: Required field is blank." 10 50
@@ -246,7 +226,7 @@ if [ "$ASK" = "0" ]; then
 	echo "" >> $CONF
 fi
 $RESTARTSMB
-if [ "$MODE" = "CDROM" ]; then
+if [ "$FLL_DISTRO_MODE" == "live" ]; then
 	$DIALOG --title "$ProgName" --msgbox "Basic Configuration written and Samba started." 10 50
 else
 	$DIALOG --title "$ProgName" --msgbox "Basic Configuration written and Samba started." 20 50
@@ -287,7 +267,6 @@ TMPF=/tmp/smb.tmp
 dialog_wrapper
 sudo_wrapper
 splash
-check_live
 check_smb
 get_plugin
 workgroup
@@ -296,10 +275,4 @@ if [ "$S_WKS" = "FAILED" ]; then
 else	
 	exit 0
 fi
-
-
-
-
-
-
 

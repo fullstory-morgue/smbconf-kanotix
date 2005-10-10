@@ -1,3 +1,11 @@
+smbconf-kanotix (4.0.3) unstable; urgency=low
+
+  * fix lintian errors.
+  * fix syntax error introduced in 4.0.2.
+  * bump standards version.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 10 Oct 2005 22:44:07 +0200
+
 smbconf-kanotix (4.0.2) unstable; urgency=low
 
   * switch to distro-defaults and kanotix-su.

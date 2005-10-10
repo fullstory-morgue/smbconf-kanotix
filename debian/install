@@ -1,2 +1,2 @@
-smbconf		usr/sbin/
+smbconf-kanotix	usr/sbin/
 *.desktop	usr/share/applnk/Kanotix/Net/

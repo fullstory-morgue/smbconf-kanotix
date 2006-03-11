@@ -1,8 +1,9 @@
-smbconf-kanotix (4.0.4) UNRELEASED; urgency=low
+smbconf-kanotix (4.0.4) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * remove cdbs auto-update feature.
+  * bump compat level to 5.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 10 Oct 2005 22:45:53 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 11 Mar 2006 23:58:40 +0100
 
 smbconf-kanotix (4.0.3) unstable; urgency=low
 

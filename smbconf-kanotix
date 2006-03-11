@@ -14,7 +14,9 @@ FLL_LIVE_USER="knoppix"
 
 function sudo_wrapper ()
 {
-	[ $UID != 0 ] && exec kanotix-su "$0" "$@" ||exit 1
+	if [ "$UID" -ne 0 ]; then
+		exec kanotix-su "$0" "$@" || exit 1
+	fi
 }
 
 function dialog_wrapper ()

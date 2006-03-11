@@ -1,9 +1,15 @@
-smbconf-kanotix (4.0.4) unstable; urgency=low
+smbconf-kanotix (4.0.5) unstable; urgency=low
 
   * remove cdbs auto-update feature.
   * bump compat level to 5.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 11 Mar 2006 23:58:40 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 12 Mar 2006 00:02:45 +0100
+
+smbconf-kanotix (4.0.4) unstable; urgency=low
+
+  * fix sudo-wrapper.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 12 Mar 2006 00:02:40 +0100
 
 smbconf-kanotix (4.0.3) unstable; urgency=low
 

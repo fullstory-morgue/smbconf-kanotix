@@ -1,8 +1,9 @@
-smbconf-kanotix (4.0.6) UNRELEASED; urgency=low
+smbconf-kanotix (4.0.6) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * switch to utf-8.
+  * fix lintian errors.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 12 Mar 2006 00:04:18 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  2 Nov 2006 14:17:10 +0100
 
 smbconf-kanotix (4.0.5) unstable; urgency=low
 

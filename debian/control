@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: smbconf-kanotix
 Architecture: all
-Depends: ${shlibs:Depends}, dialog, xdialog, sudo, samba, samba-common, kanotix-su, distro-defaults
+Depends: ${shlibs:Depends}, dialog, xdialog, samba, samba-common, kanotix-su, distro-defaults
 Description: Frontend to configure samba
  Easy Configuration utility for samba on KANOTIX based lifecds.
 

@@ -1,8 +1,9 @@
-smbconf-kanotix (4.0.7) UNRELEASED; urgency=low
+smbconf-kanotix (4.0.7) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix useless bashism.
+  * re- indent.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  2 Nov 2006 14:18:21 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  9 Nov 2006 23:34:02 +0100
 
 smbconf-kanotix (4.0.6) unstable; urgency=low
 

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment[de]=Samba konfigurieren
 Comment[es]=Configuración de la Samba
-Exec=/usr/sbin/smbconf-kanotix
+Exec=/usr/sbin/smbconf-sidux
 Name[de]=Samba konfigurieren
 Name[es]=Configuración de la Samba
 Name=samba configuration

@@ -1,8 +1,10 @@
-smbconf-kanotix (4.0.8) UNRELEASED; urgency=low
+smbconf-sidux (4.0.8) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  9 Nov 2006 23:35:25 +0100
+  * Initial version for sidux
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Mon,  4 Dec 2006 19:52:34 +0100
 
 smbconf-kanotix (4.0.7) unstable; urgency=low
 

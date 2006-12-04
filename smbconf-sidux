@@ -15,7 +15,7 @@ FLL_LIVE_USER="knoppix"
 function sudo_wrapper ()
 {
 	if [ "$UID" -ne 0 ]; then
-		exec kanotix-su "$0" "$@" || exit 1
+		exec su-me "$0" "$@" || exit 1
 	fi
 }
 
@@ -90,7 +90,7 @@ function SMB_USER_CREATE ()
 {
 	if [ "$FLL_DISTRO_MODE" = "live" ]; then
 		SMB_USER="$FLL_LIVE_USER"
-		WIN_USER=$(inputbox "What is the Windows Username of $SMB_USER\n\nexample: kanotix." 50)
+		WIN_USER=$(inputbox "What is the Windows Username of $SMB_USER\n\nexample: $FLL_LIVE_USER." 50)
 		if [ ! "$WIN_USER" ]; then
 			$DIALOG --title "$ProgName" --msgbox "ERROR: Required field is blank." 10 50
 			S_USER=FAILED
@@ -109,7 +109,7 @@ function SMB_USER_CREATE ()
 		echo -e "$SMB_PASS\\n$SMB_PASS\\n" | smbpasswd -L -a "$SMB_USER" -s
 		$DIALOG --title "$ProgName" --msgbox "$SMB_USER created." 10 50
 	else
-		SMB_USER=$(inputbox "Type the Username to create a Samba User:\n\nexample: kanotix" 50)
+		SMB_USER=$(inputbox "Type the Username to create a Samba User:\n\nexample: $FLL_LIVE_USER" 50)
 		if [ ! "$SMB_USER" ]; then
 			$DIALOG --title "$ProgName" --msgbox "ERROR: Required field is blank." 10 50
 			S_USER=FAILED
@@ -124,7 +124,7 @@ function SMB_USER_CREATE ()
 			return
 		fi
 	
-		WIN_USER=$(inputbox "What is the Windows Username of $SMB_USER\n\nexample: kanotix" 50)
+		WIN_USER=$(inputbox "What is the Windows Username of $SMB_USER\n\nexample: $FLL_LIVE_USER" 50)
 		if [ ! "$WIN_USER" ]; then
 			$DIALOG --title "$ProgName" --msgbox "ERROR: Required field is blank." 10 50
 			S_USER=FAILED
@@ -165,7 +165,7 @@ function workgroup ()
 	rm -f $UMAP
 	rm -f $PMAP
 	echo
-	WKS=$(inputbox "Please type the Name of your Workgroup:\n\nexample: Kanotix-net." 50)
+	WKS=$(inputbox "Please type the Name of your Workgroup:\n\nexample: $FLL_LIVE_USER-net." 50)
 	if [ ! "$WKS" ]; then
 		$DIALOG --title "$ProgName" --msgbox "ERROR: Required field is blank." 10 50
 		S_WKS=FAILED

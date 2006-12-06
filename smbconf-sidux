@@ -1,9 +1,9 @@
 #!/bin/bash
 #######################################
-# Sambaconf 4.0 for Kanotix
+# Sambaconf 5.0 for Kanotix
 # by Andreas Weber
-# 20.06.2004
-# sambaconf@it-weber.com
+# 06.12.2006
+# andreas@it-weber.com
 # 
 #######################################
 
@@ -71,19 +71,8 @@ function askyn ()
 function splash ()
 {
 	$DIALOG --title "$ProgName" --msgbox "\
-	$ProgName\n\nAuthor:Andreas Weber\nsambaconf@it-weber.com\n\n\n
+	$ProgName\n\nAuthor:Andreas Weber\nandreas@it-weber.com\n\n\n
 	This Script is experimental. There will be no warranty.\nUse it at you own Risk!\n\n\nPress OK to continue.\n\n " 20 50
-}
-
-function get_plugin ()
-{
-	if [ ! -f "/usr/lib/kde3/libkcm_kcmsambaconf.la" ]; then
-		if [ "$FLL_DISTRO_MODE" = "live" ]; then
-			echo "Continue without plugin."
-		else
-			apt-get install kdenetwork-filesharing
-		fi
-	fi
 }
 
 function SMB_USER_CREATE ()
@@ -182,7 +171,7 @@ function workgroup ()
 	echo "	username map = $UMAP" >> $CONF
 	echo "	smb passwd file = $PMAP" >> $CONF
 	echo "	socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192" >> $CONF
-	echo "	character set = ISO8859-1" >> $CONF
+	echo "	character set = UTF-8" >> $CONF
 	echo "	printcap name = cups" >> $CONF
 	echo "	load printers = yes" >> $CONF
 	echo "	printing = cups" >> $CONF
@@ -216,7 +205,7 @@ function workgroup ()
 	fi
 	if [ "$ASK" = "0" ]; then
 		echo "[printers]" >> $CONF
-		PUSER=$(inputbox "Please type the Userame of the Printer-Administrator:\n\nexample: Administrator or root." 50)
+		PUSER=$(inputbox "Please type the Username of the Printer-Administrator:\n\nexample: Administrator or root." 50)
 		if [ ! "$PUSER" ]; then
 			$DIALOG --title "$ProgName" --msgbox "ERROR: Required field is blank." 10 50
 			S_WKS=FAILED
@@ -271,7 +260,7 @@ function smb_restart ()
 
 # Here start's the Script
 # Set ENV
-ProgName="Sambaconf 4.0"
+ProgName="Sambaconf 5.0"
 CONF=/etc/samba/smb.conf
 UMAP=/etc/samba/smbusers
 PMAP=/etc/samba/smbpasswd
@@ -282,7 +271,6 @@ dialog_wrapper
 sudo_wrapper
 splash
 check_smb
-get_plugin
 workgroup
 if [ "$S_WKS" = "FAILED" ]; then
 	workgroup

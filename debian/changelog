@@ -1,3 +1,9 @@
+smbconf-sidux (5.0.2) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 30 Dec 2006 17:56:23 +0100
+
 smbconf-sidux (5.0.1) unstable; urgency=low
 
   * depend on procps.

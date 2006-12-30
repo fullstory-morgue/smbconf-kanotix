@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: smbconf-sidux
 Architecture: all
-Depends: ${shlibs:Depends}, dialog, xdialog, samba, samba-common, su-me, distro-defaults
+Depends: ${shlibs:Depends}, dialog, xdialog, distro-defaults, procps, samba, samba-common, su-me
 Conflicts: smbconf-kanotix
 Description: Frontend to configure samba
  Easy Configuration utility for samba on sidux based lifecds.

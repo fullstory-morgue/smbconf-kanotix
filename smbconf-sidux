@@ -9,8 +9,8 @@
 
 # override tool behaviour through distro-defaults
 FLL_DISTRO_MODE="installed"
-FLL_LIVE_USER="knoppix"
-[ -r /etc/default/distro ] && source /etc/default/distro
+FLL_LIVE_USER="sidux"
+[ -r /etc/default/distro ] && . /etc/default/distro
 
 function sudo_wrapper ()
 {

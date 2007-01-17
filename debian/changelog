@@ -1,8 +1,9 @@
-smbconf-sidux (5.0.3) UNRELEASED; urgency=low
+smbconf-sidux (5.0.3) ORPHANED; urgency=low
 
   * NOT RELEASED YET
+  * ORPHAN PACKAGE.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  2 Jan 2007 16:06:47 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 17 Jan 2007 17:48:49 +0100
 
 smbconf-sidux (5.0.2) unstable; urgency=low
 
